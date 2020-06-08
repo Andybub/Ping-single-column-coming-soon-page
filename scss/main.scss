@@ -1,0 +1,206 @@
+// primary color
+$blue: hsl(223, 87%, 63%);
+
+// secondary color
+$paleBlue: hsl(223, 100%, 88%);
+$lightRed: hsl(354, 100%, 66%);
+
+// neutral color
+$gray: hsl(0, 0%, 59%);
+$veryDarkBlue: hsl(209, 33%, 12%);
+
+%smallFont {
+  font-size: 12px;
+}
+
+%formSetting {
+  width: 90%;
+  padding: 12px 35px;
+  border-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 20px;
+}
+
+img {
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  display: inline-block;
+}
+
+::placeholder {
+  color: $paleBlue;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container1 {
+  background-color: $veryDarkBlue;
+  .container {
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 70px 30px 40px;
+    background-color: #fff;
+    text-align: center;
+    .logo {
+      padding-bottom: 30px;
+      > img {
+        margin: 0 auto;
+        transform: scale(0.6);
+      }
+    }
+    .launch {
+      padding-bottom: 15px;
+      font-size: 22px;
+      color: $gray;
+      > span {
+        color: #000;
+        font-weight: 700;
+      }
+    }
+    .subscribe {
+      @extend %smallFont;
+      padding-bottom: 30px;
+    }
+    > form {
+      > input {
+        @extend %smallFont;
+        @extend %formSetting;
+        margin-bottom: 10px;
+        border: 1px solid $paleBlue;
+        &.error {
+          border-color: $lightRed;
+        }
+      }
+      .errorMessage {
+        display: none;
+        @extend %smallFont;
+        margin-bottom: 30px;
+        color: $lightRed;
+        &.error {
+          display: block;
+        }
+      }
+      > button {
+        @extend %smallFont;
+        @extend %formSetting;
+        color: #ffffff;
+        background-color: $blue;
+        font-weight: 600;
+        &:hover {
+          box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    .dashboard {
+      padding-top: 70px;
+      padding-bottom: 100px;
+      > img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .socialMedia {
+      padding-bottom: 30px;
+      > ul {
+        display: inline-block;
+        > li {
+          float: left;
+          padding-right: 10px;
+          &:last-child {
+            padding-right: 0;
+          }
+          > a {
+            height: 30px;
+            width: 30px;
+            border: 1px solid $paleBlue;
+            border-radius: 30px;
+            color: $blue;
+            font-size: 17px;
+            &:hover {
+              color: #ffffff;
+              background-color: $blue;
+            }
+            > i {
+              line-height: 30px;
+            }
+            > ion-icon {
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+    .copyRight {
+      @extend %smallFont;
+      color: $gray;
+      transform: scale(0.9);
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  %buttonSettingBig {
+    padding: 16px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+  }
+
+  .container1 {
+    padding: 0;
+    .container {
+      max-width: 1440px;
+      padding: 70px 420px 40px;
+      .logo {
+        padding-bottom: 40px;
+        > img {
+          transform: scale(1);
+        }
+      }
+      .launch {
+        font-size: 46px;
+      }
+      .subscribe {
+        font-size: 19px;
+      }
+      > form {
+        position: relative;
+        > input {
+          @extend %buttonSettingBig;
+          width: 66%;
+          float: left;
+        }
+        .errorMessage {
+          position: absolute;
+          left: 31px;
+          bottom: -40px;
+        }
+        > button {
+          @extend %buttonSettingBig;
+          width: 31%;
+          float: right;
+        }
+      }
+    }
+  }
+}
